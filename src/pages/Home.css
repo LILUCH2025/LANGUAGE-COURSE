@@ -1,0 +1,36 @@
+.page {
+   background-image: url('../assets/background.jpg');
+  min-height: 100vh; /* ارتفاع الصفحة كامل */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* عمودي في المنتصف */
+  align-items: center;     /* أفقي في المنتصف */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.images-container {
+  display: flex;
+  gap: 20px; /* مسافة بين الصور */
+  justify-content: center; /* تأكد الصور وسط الحاوية */
+}
+
+.main-img {
+  width: 300px; /* عرض الصورة */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل خفيف حلو */
+}
+.page h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff; /* خط أبيض */
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* ظل بسيط لتمييز النص الأبيض */
+   background-color: #d6336c; /* خلفية وردي داكن */
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 12px;
+   border: 2px solid #fff; /* إطار أبيض حول العنوان */
+} 
