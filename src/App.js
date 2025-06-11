@@ -4,7 +4,8 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
-import SignUp from './pages/SignUp';  // استيراد صفحة التسجيل الجديدة
+import SignUp from './pages/SignUp';
+import CourseDetails from './pages/CourseDetail'; // لا تنس التأكد من صحة المسار
 import './App.css';
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />  {/* إضافة المسار */}
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );

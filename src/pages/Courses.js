@@ -8,35 +8,16 @@ import {
   where,
   deleteDoc
 } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+import courseList from '../data/courseList';
 
 function Courses() {
-  const [courseList, setCourseList] = useState([
-    {
-      name: 'الإنجليزية',
-      description: 'تعلم الإنجليزية من الصفر.',
-      lessons: ['مقدمة في الإنجليزية', 'الأبجدية والنطق', 'المحادثة الأساسية', 'قواعد اللغة الإنجليزية']
-    },
-    {
-      name: 'الفرنسية',
-      description: 'دروس تفاعلية للفرنسية.',
-      lessons: ['مقدمة في الفرنسية', 'الأبجدية والنطق', 'المفردات الأساسية', 'التعابير اليومية']
-    },
-    {
-      name: 'الألمانية',
-      description: 'ابدأ بالألمانية بسهولة.',
-      lessons: ['مقدمة في الألمانية', 'الأبجدية والنطق', 'الجمل الأساسية', 'قواعد اللغة الألمانية']
-    }
-  ]);
-
   const [studentsData, setStudentsData] = useState({});
   const [names, setNames] = useState(Array(courseList.length).fill(''));
   const [message, setMessage] = useState('');
-
-  // حالات التعديل
   const [editingIndex, setEditingIndex] = useState(null);
   const [editedName, setEditedName] = useState('');
 
-  // جلب أسماء المسجلين
   useEffect(() => {
     const fetchRegistrations = async () => {
       const snapshot = await getDocs(collection(db, 'registrations'));
@@ -99,13 +80,11 @@ function Courses() {
     }
   };
 
-  // 📝 بدء التعديل
   const startEditing = (course, idx, currentName) => {
     setEditingIndex(`${course}-${idx}`);
     setEditedName(currentName);
   };
 
-  // 💾 حفظ التعديل
   const saveEditedName = async (course, idx) => {
     const studentName = studentsData[course][idx];
 
@@ -132,7 +111,6 @@ function Courses() {
     setEditedName('');
   };
 
-  // 🗑️ حذف الطالب
   const deleteStudent = async (course, studentName) => {
     const confirmDelete = window.confirm(`هل تريد حذف ${studentName} من دورة ${course}؟`);
     if (!confirmDelete) return;
@@ -165,48 +143,83 @@ function Courses() {
             <h3>{course.name}</h3>
             <p>{course.description}</p>
 
-            <h4>الدروس:</h4>
+            <h4>الدروس</h4>
             <ul>
               {course.lessons.map((lesson, idx) => (
                 <li key={idx}>{lesson}</li>
               ))}
             </ul>
 
-            <h4>المسجلون في الدورة:</h4>
+            <h4>المسجلون في الدورة</h4>
             {studentsData[course.name]?.length > 0 ? (
               <ul>
-                {studentsData[course.name].map((student, idx) => (
-                  <li key={idx}>
-                    {editingIndex === `${course.name}-${idx}` ? (
-                      <>
-                        <input
-                          value={editedName}
-                          onChange={(e) => setEditedName(e.target.value)}
-                        />
-                        <button onClick={() => saveEditedName(course.name, idx)}>💾 حفظ</button>
-                        <button onClick={() => setEditingIndex(null)}>❌ إلغاء</button>
-                      </>
-                    ) : (
-                      <>
-                        {student}{' '}
-                        <button onClick={() => startEditing(course.name, idx, student)}>📝</button>{' '}
-                        <button onClick={() => deleteStudent(course.name, student)}>🗑️</button>
-                      </>
-                    )}
-                  </li>
-                ))}
+                {studentsData[course.name]
+                  .filter((student) => student && student.trim() !== '')
+                  .map((student, idx) => (
+                    <li key={idx}>
+                      {editingIndex === `${course.name}-${idx}` ? (
+                        <>
+                          <input
+                            value={editedName}
+                            onChange={(e) => setEditedName(e.target.value)}
+                          />
+                          <button onClick={() => saveEditedName(course.name, idx)}>💾 حفظ</button>
+                          <button onClick={() => setEditingIndex(null)}>❌ إلغاء</button>
+                        </>
+                      ) : (
+                        <>
+                          {student}{' '}
+                          <button onClick={() => startEditing(course.name, idx, student)}>📝</button>{' '}
+                          <button onClick={() => deleteStudent(course.name, student)}>🗑️</button>
+                        </>
+                      )}
+                    </li>
+                  ))}
               </ul>
             ) : (
               <p>لا يوجد مسجلون حالياً.</p>
             )}
 
-            <input
-              type="text"
-              placeholder="اسمك للتسجيل في الدورة"
-              value={names[index]}
-              onChange={(e) => handleInputChange(index, e.target.value)}
-            />
-            <button onClick={() => handleRegister(index)}>سجل الآن</button>
+            <div style={{ marginTop: '10px', textAlign: 'center' }}>
+              <input
+                type="text"
+                placeholder="اسمك للتسجيل في الدورة"
+                value={names[index]}
+                onChange={(e) => handleInputChange(index, e.target.value)}
+                style={{
+                  padding: '12px',
+                  width: '80%',
+                  fontSize: '18px',
+                  borderRadius: '10px',
+                  border: '2px solid #ff69b4',
+                  marginBottom: '10px',
+                  outline: 'none',
+                }}
+              />
+              <br />
+              <button
+                onClick={() => handleRegister(index)}
+                style={{
+                  backgroundColor: '#ff69b4',
+                  color: 'white',
+                  border: 'none',
+                  padding: '12px 25px',
+                  fontSize: '18px',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s',
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = '#ff4d94')}
+                onMouseOut={(e) => (e.target.style.backgroundColor = '#ff69b4')}
+              >
+                ✅ سجل الآن
+              </button>
+            </div>
+
+            {/* ✅ هذا هو الجزء الجديد المبسط لزر "📘 المزيد" */}
+            <div style={{ marginTop: '10px', textAlign: 'center' }}>
+              <Link to={`/courses/${course.id}`}>📘 المزيد</Link>
+            </div>
           </div>
         ))}
       </div>
@@ -215,3 +228,4 @@ function Courses() {
 }
 
 export default Courses;
+

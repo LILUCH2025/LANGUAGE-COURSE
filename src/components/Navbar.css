@@ -1,14 +1,48 @@
 .navbar {
   background-color: #ff69b4;
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Cairo', sans-serif;
 }
 
-.navbar a {
+.navbar-logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.navbar-links a {
+  font-size: 20px; /* تكبير الخط */
   color: white;
   margin: 0 1rem;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #fce4ec;
+}
+
+.logout-btn {
+  background-color: #c2185b;
+  padding: 8px 20px;
+  border-radius: 10px;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #880e4f;
+  color: white;
+}
+.navbar-links a {
+  font-size: 22px; /* ⬅️ تكبير الخط */
+  font-weight: bold; /* ⬅️ زيادة سماكة الخط */
+  font-family: 'Cairo', sans-serif; /* ⬅️ الخط العربي الجميل */
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { auth, db } from '../firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import './Contact.css';
 
 function Contact() {
   const [message, setMessage] = useState('');
@@ -47,10 +48,10 @@ function Contact() {
         ></textarea>
         <button type="submit" className="btn">إرسال</button>
       </form>
-      {success && <p style={{ color: 'green' }}>{success}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p style={{ color: 'green', marginTop: '15px' }}>{success}</p>}
+    {error && <p style={{ color: 'red', marginTop: '15px' }}>{error}</p>}
     </div>
   );
 }
 
-export default Contact;
+export default Contact;  

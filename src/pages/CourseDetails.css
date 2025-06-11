@@ -1,0 +1,33 @@
+.course-details-container {
+  background-color: #ffe6f0; /* خلفية وردي فاتح */
+  padding: 30px;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px; /* خط كبير وواضح */
+  color: #333;
+  direction: rtl; /* لأن المحتوى بالعربية */
+}
+
+.course-box {
+  border: 2px solid #d63384; /* وردي غامق */
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  background-color: #fff0f5; /* لون خلفي خفيف */
+}
+
+.course-box h2,
+.course-box h3 {
+  color: #d63384;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.course-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.course-box li {
+  margin-bottom: 5px;
+}
