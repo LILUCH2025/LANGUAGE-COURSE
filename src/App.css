@@ -42,3 +42,9 @@ input, textarea {
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* ✅ إزالة النقاط من جميع القوائم */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
