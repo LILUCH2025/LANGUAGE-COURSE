@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
-import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc
+} from 'firebase/firestore';
 
 function Courses() {
   const [courseList, setCourseList] = useState([
@@ -25,7 +32,11 @@ function Courses() {
   const [names, setNames] = useState(Array(courseList.length).fill(''));
   const [message, setMessage] = useState('');
 
-  // جلب أسماء المسجلين من Firestore
+  // حالات التعديل
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [editedName, setEditedName] = useState('');
+
+  // جلب أسماء المسجلين
   useEffect(() => {
     const fetchRegistrations = async () => {
       const snapshot = await getDocs(collection(db, 'registrations'));
@@ -73,7 +84,6 @@ function Courses() {
         createdAt: new Date()
       });
 
-      // تحديث الواجهة فورًا
       setStudentsData(prev => ({
         ...prev,
         [courseName]: [...(prev[courseName] || []), name]
@@ -87,6 +97,62 @@ function Courses() {
       console.error(error);
       setMessage('حدث خطأ أثناء التسجيل.');
     }
+  };
+
+  // 📝 بدء التعديل
+  const startEditing = (course, idx, currentName) => {
+    setEditingIndex(`${course}-${idx}`);
+    setEditedName(currentName);
+  };
+
+  // 💾 حفظ التعديل
+  const saveEditedName = async (course, idx) => {
+    const studentName = studentsData[course][idx];
+
+    const q = query(
+      collection(db, 'registrations'),
+      where('course', '==', course),
+      where('name', '==', studentName)
+    );
+
+    const snapshot = await getDocs(q);
+    snapshot.forEach(async (docSnap) => {
+      await addDoc(collection(db, 'registrations'), {
+        ...docSnap.data(),
+        name: editedName,
+        createdAt: new Date()
+      });
+      await deleteDoc(docSnap.ref);
+    });
+
+    const updatedList = [...studentsData[course]];
+    updatedList[idx] = editedName;
+    setStudentsData({ ...studentsData, [course]: updatedList });
+    setEditingIndex(null);
+    setEditedName('');
+  };
+
+  // 🗑️ حذف الطالب
+  const deleteStudent = async (course, studentName) => {
+    const confirmDelete = window.confirm(`هل تريد حذف ${studentName} من دورة ${course}؟`);
+    if (!confirmDelete) return;
+
+    const q = query(
+      collection(db, 'registrations'),
+      where('course', '==', course),
+      where('name', '==', studentName)
+    );
+
+    const snapshot = await getDocs(q);
+    snapshot.forEach(async (docSnap) => {
+      await deleteDoc(docSnap.ref);
+    });
+
+    const updated = {
+      ...studentsData,
+      [course]: studentsData[course].filter((name) => name !== studentName)
+    };
+    setStudentsData(updated);
   };
 
   return (
@@ -110,7 +176,24 @@ function Courses() {
             {studentsData[course.name]?.length > 0 ? (
               <ul>
                 {studentsData[course.name].map((student, idx) => (
-                  <li key={idx}>{student}</li>
+                  <li key={idx}>
+                    {editingIndex === `${course.name}-${idx}` ? (
+                      <>
+                        <input
+                          value={editedName}
+                          onChange={(e) => setEditedName(e.target.value)}
+                        />
+                        <button onClick={() => saveEditedName(course.name, idx)}>💾 حفظ</button>
+                        <button onClick={() => setEditingIndex(null)}>❌ إلغاء</button>
+                      </>
+                    ) : (
+                      <>
+                        {student}{' '}
+                        <button onClick={() => startEditing(course.name, idx, student)}>📝</button>{' '}
+                        <button onClick={() => deleteStudent(course.name, student)}>🗑️</button>
+                      </>
+                    )}
+                  </li>
                 ))}
               </ul>
             ) : (
