@@ -1,57 +1,33 @@
-body {
-  background-color: #ffe6f0; /* خلفية وردي فاتح */
-  font-family: 'Cairo', sans-serif; /* خط واضح وجميل */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.container {
-  background-color: #fff0f6; /* وردي فاتح داخل الإطار */
-  border: 3px solid #d63384; /* إطار وردي غامق */
-  border-radius: 15px;
-  padding: 30px 40px;
-  max-width: 600px;
-  box-shadow: 0 0 15px rgba(214, 51, 132, 0.4);
-  text-align: center;
-}
-
 .course-title {
-  font-size: 2.8rem; /* أكبر وأكثر وضوحًا */
-  font-weight: 900;
-  color: #a7005c; /* وردي غامق جدًا */
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 3px rgba(167, 0, 92, 0.6);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
 }
 
 .description {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  color: #88004d; /* وردي متوسط */
-  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
 }
 
 .section-title {
-  font-size: 1.6rem;
+  margin-top: 30px;
+  font-size: 1.3rem;
   color: #d63384; /* وردي غامق */
-  border-bottom: 3px solid #d63384;
-  padding-bottom: 8px;
-  margin-bottom: 15px;
-  font-weight: 700;
+  border-bottom: 2px solid #d63384;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .list {
-  list-style-type: disc;
-  padding-left: 30px;
-  margin-bottom: 30px;
-  text-align: left; /* القوائم تكون منسقة لليسار */
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .list-item {
-  margin-bottom: 10px;
-  color: #6a0041; /* وردي داكن */
-  font-size: 1.2rem;
-  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 1rem;
 }
