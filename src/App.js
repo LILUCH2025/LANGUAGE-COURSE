@@ -1,16 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// App.jsx ✅ بدون HashRouter
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import CourseDetails from './pages/CourseDetail'; // لا تنس التأكد من صحة المسار
+import CourseDetails from './pages/CourseDetail';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,8 +21,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
 export default App;
+

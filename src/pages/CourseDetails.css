@@ -1,33 +1,33 @@
-.course-details-container {
-  background-color: #ffe6f0; /* خلفية وردي فاتح */
-  padding: 30px;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
-  font-size: 20px; /* خط كبير وواضح */
-  color: #333;
-  direction: rtl; /* لأن المحتوى بالعربية */
+.course-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
 }
 
-.course-box {
-  border: 2px solid #d63384; /* وردي غامق */
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 12px;
-  background-color: #fff0f5; /* لون خلفي خفيف */
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
 }
 
-.course-box h2,
-.course-box h3 {
-  color: #d63384;
-  font-size: 24px;
+.section-title {
+  margin-top: 30px;
+  font-size: 1.3rem;
+  color: #d63384; /* وردي غامق */
+  border-bottom: 2px solid #d63384;
+  padding-bottom: 5px;
   margin-bottom: 10px;
 }
 
-.course-box ul {
-  list-style-type: disc;
+.list {
   padding-left: 20px;
+  margin-bottom: 20px;
 }
 
-.course-box li {
-  margin-bottom: 5px;
+.list-item {
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 1rem;
 }
