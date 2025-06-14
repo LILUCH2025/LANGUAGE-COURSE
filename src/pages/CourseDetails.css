@@ -1,33 +1,76 @@
-.course-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #222;
+/* الحاوية الرئيسية للصفحة: لتوسيط المحتوى */
+.page {
+  max-width: 700px;      /* عرض مناسب */
+  margin: 40px auto;     /* توازن أفقي وعمودي */
+  padding: 20px;
+  font-family: 'Cairo', sans-serif;
+  background-color: #fff0f6;  /* وردي فاتح للخلفية */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(214, 51, 132, 0.3);
+  text-align: center;
+  color: #4a004b; /* كتابة واضحة داكنة */
 }
 
+/* عنوان الدورة داخل إطار وردي */
+.course-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: 3px solid #d63384; /* إطار وردي غامق */
+  border-radius: 12px;
+  color: #a7005c; /* وردي داكن للنص */
+  box-shadow: 1px 1px 6px rgba(214, 51, 132, 0.4);
+}
+
+/* الوصف العادي كما هو */
 .description {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #444;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+/* عنوان الأقسام (الدروس والطلاب) */
 .section-title {
   margin-top: 30px;
-  font-size: 1.3rem;
-  color: #d63384; /* وردي غامق */
-  border-bottom: 2px solid #d63384;
-  padding-bottom: 5px;
+  font-size: 1.5rem;
+  color: #d63384;
+  border-bottom: 3px solid #d63384;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* الإطارات الوردية للقوائم */
+.lessons-frame, .students-frame {
+  border: 2.5px solid #ff85b3; /* وردي فاتح */
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  background-color: #ffe6f0; /* وردي فاتح جدًا للخلفية */
+  text-align: right; /* محاذاة نص يمين للعربية */
+  box-shadow: 0 0 10px rgba(255, 133, 179, 0.4);
+}
+
+/* قوائم داخل الإطارات */
+.lessons-frame ul, .students-frame ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin: 0;
+  color: #6a0041;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* عناصر القائمة */
+.lessons-frame ul li, .students-frame ul li {
   margin-bottom: 10px;
 }
 
-.list {
-  padding-left: 20px;
-  margin-bottom: 20px;
+/* تلوين عناوين الأقسام لتظهر فوق الإطارات */
+.lessons-frame + .section-title, 
+.students-frame + .section-title {
+  margin-top: 0;
 }
 
-.list-item {
-  margin-bottom: 6px;
-  color: #333;
-  font-size: 1rem;
-}
