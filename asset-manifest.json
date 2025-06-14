@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/LANGUAGE-COURSE/static/css/main.2041273f.css",
-    "main.js": "/LANGUAGE-COURSE/static/js/main.62a5cf9c.js",
+    "main.css": "/LANGUAGE-COURSE/static/css/main.045e7e19.css",
+    "main.js": "/LANGUAGE-COURSE/static/js/main.7eec4d39.js",
     "static/js/453.3c504ded.chunk.js": "/LANGUAGE-COURSE/static/js/453.3c504ded.chunk.js",
     "static/media/leslangue.jpg": "/LANGUAGE-COURSE/static/media/leslangue.7d269a5d5f719eb1b31c.jpg",
     "static/media/dawlond.jpg": "/LANGUAGE-COURSE/static/media/dawlond.beb86d28f790e3b2ca64.jpg",
     "static/media/background.jpg": "/LANGUAGE-COURSE/static/media/background.38c113623d2afc9bae3e.jpg",
     "index.html": "/LANGUAGE-COURSE/index.html",
-    "main.2041273f.css.map": "/LANGUAGE-COURSE/static/css/main.2041273f.css.map",
-    "main.62a5cf9c.js.map": "/LANGUAGE-COURSE/static/js/main.62a5cf9c.js.map",
+    "main.045e7e19.css.map": "/LANGUAGE-COURSE/static/css/main.045e7e19.css.map",
+    "main.7eec4d39.js.map": "/LANGUAGE-COURSE/static/js/main.7eec4d39.js.map",
     "453.3c504ded.chunk.js.map": "/LANGUAGE-COURSE/static/js/453.3c504ded.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2041273f.css",
-    "static/js/main.62a5cf9c.js"
+    "static/css/main.045e7e19.css",
+    "static/js/main.7eec4d39.js"
   ]
 }
