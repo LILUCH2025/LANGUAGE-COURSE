@@ -40,12 +40,13 @@ function Contact() {
       <h2>تواصل معنا</h2>
       <form onSubmit={handleSubmit}>
         <textarea
-          placeholder="اكتب رسالتك هنا..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows="5"
-          required
-        ></textarea>
+  className="contact-textarea"
+  placeholder="اكتب رسالتك هنا..."
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  rows="5"
+  required
+></textarea>
         <button type="submit" className="btn">إرسال</button>
       </form>
       {success && <p style={{ color: 'green', marginTop: '15px' }}>{success}</p>}

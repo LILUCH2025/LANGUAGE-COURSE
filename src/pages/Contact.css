@@ -1,7 +1,7 @@
 .contact-textarea {
   width: 100%;
-  padding: 15px;
-  font-size: 18px;
+  padding: 20px;         /* زيدت الـ padding قليلاً */
+  font-size: 20px;       /* كبرت حجم الخط */
   border: 2px solid #e91e63;
   border-radius: 10px;
   font-family: 'Cairo', sans-serif;
@@ -31,3 +31,4 @@
 .btn:hover {
   background-color: #c2185b;
 }
+
