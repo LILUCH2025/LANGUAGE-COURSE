@@ -31,3 +31,74 @@
   color: #333;
   font-size: 1rem;
 }
+.course-details-container {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4a235a; /* لون خط واضح */
+  text-align: center;
+}
+
+/* إطار اسم الدورة */
+.course-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #a30052; /* وردي غامق */
+  padding: 20px;
+  border: 3px solid #ffb6c1; /* وردي فاتح */
+  border-radius: 12px;
+  margin-bottom: 30px;
+  background-color: #ffd6e8; /* وردي فاتح جدًا خلفية */
+}
+
+/* إطار الدروس */
+.course-box.lessons {
+  border: 3px solid #a30052; /* وردي غامق */
+  background-color: #ffe6f0; /* وردي فاتح */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  color: #4a235a;
+  text-align: right; /* محاذاة النص لليمين لأن المحتوى عربي */
+}
+
+/* عنوان قسم */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #a30052; /* وردي غامق */
+}
+
+/* قائمة الدروس والطلاب */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #4a235a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* عناصر القائمة */
+.list-item {
+  border-bottom: 1px solid #a30052;
+  padding: 8px 0;
+}
+
+/* آخر عنصر بدون حد سفلي */
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* إطار الطلاب المسجلين */
+.course-box.students {
+  border: 3px solid #a30052; /* وردي غامق */
+  background-color: #ffe6f0; /* وردي فاتح */
+  border-radius: 12px;
+  padding: 20px;
+  color: #4a235a;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
